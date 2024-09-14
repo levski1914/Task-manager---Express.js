@@ -9,6 +9,10 @@ const taskFilePath = path.join(__dirname, "data", "task.json");
 
 app.use(express.static("public"));
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "index.html")); // Път към index.html извън public
+});
+
 app.use(bodyParser.json());
 
 function getTasks() {
